@@ -16,18 +16,22 @@ public class SistemaRegisto {
          
         do{System.out.println("INTRODUZA O CODIGO DO LIVRO: ");
             code=t.nextInt();
-            if(a.codigo==code){
+            
+            if(code>0){
             a=new Registo();
-            a.codigo=(code);
+            a.codigo=code;
+                t=new Scanner(System.in);    
                 System.out.println("INTRODUZA O TITULO: ");
-                a.settitulo(t.next());
+                a.settitulo(t.nextLine());
                 System.out.println("INTRODUZA O AUTOR: ");
-                a.autor=t.next();
+                a.autor=t.nextLine();
                 System.out.println("INTODUZA O PRECO: ");
-                a.setpreco(t.nextDouble());
+                //t=new Scanner(System.in);
+               double v=t.nextDouble();
+                a.setpreco(v);
                 y.addElement(a);
             }
-        }while(a.codigo==code);
+        }while(code>0);
     }
     public void actualizarlivro(){
          Scanner t=new Scanner(System.in);
@@ -83,6 +87,7 @@ public class SistemaRegisto {
                 }
             }    
     }
+
     public void Menu(){
      int s;
       Scanner t=new Scanner(System.in);
